@@ -15,3 +15,7 @@ test('collapses repeated dashes', () => {
 test('trims dashes at the ends', () => {
   assert.equal(slug('--a--'), 'a');
 });
+
+test('slug of an empty string is an empty string', () => {
+  assert.equal(slug(''), '');
+});
