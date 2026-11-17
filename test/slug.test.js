@@ -19,3 +19,9 @@ test('trims dashes at the ends', () => {
 test('slug of an empty string is an empty string', () => {
   assert.equal(slug(''), '');
 });
+
+test('turns tabs between words into a single dash', () => {
+  assert.equal(slug('a\tb'), 'a-b');
+  assert.equal(slug('hello\t\tworld'), 'hello-world');
+  assert.equal(slug('a \t b'), 'a-b');
+});
