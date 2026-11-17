@@ -36,3 +36,9 @@ test('drops exclamation marks', () => {
   assert.equal(slug('!!!'), '');
   assert.equal(slug('a!b'), 'a-b');
 });
+
+test('folds accented letters to their base letters', () => {
+  assert.equal(slug('Café Olé'), 'cafe-ole');
+  assert.equal(slug('Crème Brûlée'), 'creme-brulee');
+  assert.equal(slug('ÀÉÎÕÜ'), 'aeiou');
+});
