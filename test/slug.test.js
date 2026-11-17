@@ -67,3 +67,7 @@ test('does not leave a trailing dash after the cut', () => {
   assert.ok(s.length <= 50);
   assert.ok(!s.startsWith('-') && !s.endsWith('-'));
 });
+
+test('keeps digits', () => {
+  assert.equal(slug('Top 10 Tips'), 'top-10-tips');
+});
