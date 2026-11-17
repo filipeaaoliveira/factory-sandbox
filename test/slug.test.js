@@ -25,3 +25,7 @@ test('turns tabs between words into a single dash', () => {
   assert.equal(slug('hello\t\tworld'), 'hello-world');
   assert.equal(slug('a \t b'), 'a-b');
 });
+
+test('slug of a string with only spaces is an empty string', () => {
+  assert.equal(slug('   '), '');
+});
