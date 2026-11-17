@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { slug } from '../src/slug.js';
 
 test('slugs a title', () => {
-  assert.equal(slug('  Hello, World! '), 'hello-world!');
+  assert.equal(slug('  Hello, World! '), 'hello-world');
 });
 
 test('collapses repeated dashes', () => {
@@ -28,4 +28,11 @@ test('turns tabs between words into a single dash', () => {
 
 test('slug of a string with only spaces is an empty string', () => {
   assert.equal(slug('   '), '');
+});
+
+test('drops exclamation marks', () => {
+  assert.equal(slug('Hello, World!'), 'hello-world');
+  assert.equal(slug('Wow!!! Great'), 'wow-great');
+  assert.equal(slug('!!!'), '');
+  assert.equal(slug('a!b'), 'a-b');
 });
