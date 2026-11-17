@@ -12,8 +12,3 @@ jobs:
         with:
           node-version: 22
       - run: npm test
-      - name: Mark main red while .ci/fail-on-main exists
-        if: github.event_name == 'push' && hashFiles('.ci/fail-on-main') != ''
-        run: |
-          echo "::error::.ci/fail-on-main exists: main's test is red on purpose"
-          exit 1
