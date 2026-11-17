@@ -7,9 +7,10 @@ export function truncateWords(text, max) {
   const kept = [];
   let length = 0;
   for (const word of words) {
-    if (length + word.length > max) break;
+    const next = kept.length === 0 ? word.length : length + 1 + word.length;
+    if (next > max) break;
     kept.push(word);
-    length += word.length;
+    length = next;
   }
   return kept.join(' ');
 }
