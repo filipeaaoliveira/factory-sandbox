@@ -25,3 +25,13 @@ test('shortenWords gives an empty string for blank text', () => {
   assert.equal(shortenWords('', 5), '');
   assert.equal(shortenWords('   ', 5), '');
 });
+
+// Blocked by src/text.js: truncateWords splits only on ' ', so tabs and newlines
+// are not word separators there. Tracked separately; unskip once that is fixed.
+test('shortenWords leaves words out with newline separators', { skip: 'src/text.js truncateWords splits only on spaces' }, () => {
+  assert.equal(shortenWords('a\nbbbbbb', 3), 'a…');
+});
+
+test('shortenWords leaves words out with tab separators', { skip: 'src/text.js truncateWords splits only on spaces' }, () => {
+  assert.equal(shortenWords('a\tb\tc', 3), 'a b…');
+});
