@@ -54,3 +54,16 @@ test('spells out letters with no accent to fold', () => {
   assert.equal(slug('STRASSE ẞ'), 'strasse-ss');
   assert.equal(slug('ßæœøłđþ'), 'ssaeoeoldth');
 });
+
+test('caps slugs at 50 characters', () => {
+  assert.equal(slug('a'.repeat(80)).length, 50);
+  assert.equal(slug('a'.repeat(50)), 'a'.repeat(50));
+  assert.equal(slug('a'.repeat(51)), 'a'.repeat(50));
+});
+
+test('does not leave a trailing dash after the cut', () => {
+  assert.equal(slug('a'.repeat(49) + ' b'), 'a'.repeat(49));
+  const s = slug('the quick brown fox jumps over the lazy dog again and again and again');
+  assert.ok(s.length <= 50);
+  assert.ok(!s.startsWith('-') && !s.endsWith('-'));
+});
