@@ -1,0 +1,6 @@
+{
+  "rounds": 3,
+  "checks": [
+    { "name": "test", "run": "npm test" }
+  ]
+}
