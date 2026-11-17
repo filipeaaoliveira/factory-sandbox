@@ -42,3 +42,15 @@ test('folds accented letters to their base letters', () => {
   assert.equal(slug('Crème Brûlée'), 'creme-brulee');
   assert.equal(slug('ÀÉÎÕÜ'), 'aeiou');
 });
+
+test('spells out letters with no accent to fold', () => {
+  assert.equal(slug('Straße'), 'strasse');
+  assert.equal(slug('Øresund'), 'oresund');
+  assert.equal(slug('Æon'), 'aeon');
+  assert.equal(slug('Œuvre'), 'oeuvre');
+  assert.equal(slug('Łódź'), 'lodz');
+  assert.equal(slug('Đorđe'), 'dorde');
+  assert.equal(slug('Þór'), 'thor');
+  assert.equal(slug('STRASSE ẞ'), 'strasse-ss');
+  assert.equal(slug('ßæœøłđþ'), 'ssaeoeoldth');
+});
