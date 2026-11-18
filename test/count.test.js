@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { charCount } from '../src/count.js';
+import { wordCount, charCount } from '../src/count.js';
 
 test('counts characters in a word', () => {
   assert.equal(charCount('hello'), 5);
@@ -20,4 +20,22 @@ test('empty text has 0 characters', () => {
 
 test('blank text has 0 characters', () => {
   assert.equal(charCount('   \t\n '), 0);
+});
+
+test('wordCount of null is 0', () => {
+  assert.equal(wordCount(null), 0);
+});
+
+test('wordCount of undefined is 0', () => {
+  assert.equal(wordCount(undefined), 0);
+});
+
+test('wordCount counts words', () => {
+  assert.equal(wordCount('hello world'), 2);
+  assert.equal(wordCount(' a  b\tc\n'), 3);
+});
+
+test('wordCount of empty or blank text is 0', () => {
+  assert.equal(wordCount(''), 0);
+  assert.equal(wordCount('  \t\n '), 0);
 });
