@@ -26,3 +26,7 @@ test('consonants, spaces and punctuation are ignored', () => {
 test('repeated vowels are all counted', () => {
   assert.equal(countVowels('banana'), 3);
 });
+
+test("'AEIOUaeiou' gives 10", () => {
+  assert.equal(countVowels('AEIOUaeiou'), 10);
+});
