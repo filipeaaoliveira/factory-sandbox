@@ -6,3 +6,9 @@ export function wordCount(text) {
   const trimmed = text.trim();
   return trimmed === '' ? 0 : trimmed.split(/\s+/).length;
 }
+
+// Returns the number of characters in `text` that are not whitespace; empty
+// or blank text has 0.
+export function charCount(text) {
+  return text.replace(/\s/g, '').length;
+}
