@@ -71,3 +71,27 @@ test('does not leave a trailing dash after the cut', () => {
 test('keeps digits', () => {
   assert.equal(slug('Top 10 Tips'), 'top-10-tips');
 });
+
+for (const [sep, hello] of [['_', 'hello_world'], ['.', 'hello.world']]) {
+  test(`separator ${sep}`, () => {
+    assert.equal(slug('Hello, World!', { separator: sep }), hello);
+    assert.equal(slug('a --- b', { separator: sep }), `a${sep}b`);
+    assert.equal(slug('--a--', { separator: sep }), 'a');
+    assert.equal(slug('  ', { separator: sep }), '');
+    const long = slug('word '.repeat(30), { separator: sep });
+    assert.ok(long.length <= 50);
+    assert.ok(!long.endsWith(sep));
+  });
+}
+
+test('default separator options', () => {
+  assert.equal(slug('a b', { separator: '-' }), 'a-b');
+  assert.equal(slug('a b', {}), 'a-b');
+  assert.equal(slug('a b', { separator: undefined }), 'a-b');
+});
+
+test('rejects other separators', () => {
+  for (const separator of [' ', '', '--', 'x', 1, null]) {
+    assert.throws(() => slug('a b', { separator }), TypeError);
+  }
+});
