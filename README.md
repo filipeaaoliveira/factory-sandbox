@@ -8,6 +8,7 @@ A small project for testing automated changes. `npm test` runs the tests.
 - `src/capitalize.js`: capitalize – upper-cases the first character, leaves the rest.
 - `src/count.js`: wordCount and charCount – number of words / non-whitespace characters.
 - `src/excerpt.js`: excerpt – shortens text to at most max characters, ending in an ellipsis when cut.
+- `src/firstword.js`: firstWord – the first whitespace-separated word of text, or an empty string when there is none.
 - `src/initials.js`: initials – upper-case first letter of each word of a name (split on spaces/hyphens).
 - `src/kebab.js`: kebabCase – lower-cases text and joins words with `-`.
 - `src/pad.js`: padLeft – pads text on the left with a fill string up to a width.
