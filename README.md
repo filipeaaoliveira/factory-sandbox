@@ -17,6 +17,7 @@ A small project for testing automated changes. `npm test` runs the tests.
 - `src/shorten.js`: shortenWords – leading whole words that fit in max characters, plus an ellipsis when words were dropped.
 - `src/slug.js`: slug – turns a title into a URL slug (max 50 chars, configurable separator, accents folded).
 - `src/snake.js`: to_snake_case – lower-cases text and joins words with `_`.
+- `src/sum.js`: sum – the total of an array of numbers, or 0 for an empty array.
 - `src/swapcase.js`: swapCase – swaps the case of each letter.
 - `src/text.js`: truncateWords – shared helper returning leading whole words that fit in max characters.
 - `src/title.js`: titleCase – capitalises each space-separated word, lower-cases the rest.
