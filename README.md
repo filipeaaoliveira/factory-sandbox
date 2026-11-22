@@ -12,6 +12,7 @@ A small project for testing automated changes. `npm test` runs the tests.
 - `src/initials.js`: initials – upper-case first letter of each word of a name (split on spaces/hyphens).
 - `src/kebab.js`: kebabCase – lower-cases text and joins words with `-`.
 - `src/pad.js`: padLeft – pads text on the left with a fill string up to a width.
+- `src/product.js`: product – the product of an array of numbers, or 1 for an empty array.
 - `src/repeat.js`: repeatText – repeats text N times with an optional separator.
 - `src/reverse.js`: reverse – reverses characters (by code point).
 - `src/shorten.js`: shortenWords – leading whole words that fit in max characters, plus an ellipsis when words were dropped.
