@@ -1,6 +1,7 @@
 {
   "rounds": 3,
   "checks": [
-    { "name": "test", "run": "npm test" }
+    { "name": "test", "run": "npm test" },
+    { "name": "change", "run": "echo \"base: ${MACRO_CHECK_BASE:-unset}\"; if [ -n \"$MACRO_CHECK_CHANGED\" ]; then cat \"$MACRO_CHECK_CHANGED\"; else echo 'changed: unset'; fi" }
   ]
 }
